@@ -28,7 +28,7 @@ public abstract class ExtendLazyFragment extends Fragment implements FragmentOpe
     private boolean isVisible = false;
 
     /**
-     * 已加final，该方法不要重写，请重写{@link #onLazyCreateView(LayoutInflater, ViewGroup, Bundle)}来返回视图
+     * 已加final，该方法不要重写，请重写{@link #onInflaterRootView(LayoutInflater, ViewGroup, Bundle)} 来返回视图
      *
      * @param inflater           填充器
      * @param container          父容器
@@ -83,13 +83,15 @@ public abstract class ExtendLazyFragment extends Fragment implements FragmentOpe
      */
     private void startLazy() {
         //开始懒加载，并且将Fragment的View视图添加到容器
-        View view = onLazyCreateView(inflater, rootContainer, savedInstanceState);
+        View view = onInflaterRootView(inflater, rootContainer, savedInstanceState);
         rootContainer.addView(view);
         isLazyViewCreated = true;
         //懒加载完毕
         onLazyViewCreated(rootContainer, savedInstanceState);
         //可以开始查找控件了
         onFindViews(rootContainer);
+        //开始控件绑定
+        onBindContent();
     }
 
     /**
@@ -111,16 +113,6 @@ public abstract class ExtendLazyFragment extends Fragment implements FragmentOpe
         isVisible = false;
         isLazyViewCreated = false;
     }
-
-    /**
-     * 用于替代Fragment的onCreateView，在真正获取到用户焦点后才会调用
-     *
-     * @param inflater
-     * @param container
-     * @param savedInstanceState
-     * @return
-     */
-    protected abstract View onLazyCreateView(LayoutInflater inflater, ViewGroup container, @Nullable Bundle savedInstanceState);
 
     /**
      * 用来代替Fragment的onViewCreated，在真正获得用户焦点并且{@link #onLazyViewCreated(View, Bundle)}

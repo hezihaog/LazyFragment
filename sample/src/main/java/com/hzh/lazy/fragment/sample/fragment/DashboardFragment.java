@@ -22,9 +22,10 @@ import com.hzh.lazy.fragment.sample.R;
 
 public class DashboardFragment extends ExtendLazyFragment {
     private String position;
+    private TextView tip;
 
     @Override
-    protected View onLazyCreateView(LayoutInflater inflater, ViewGroup container, @Nullable Bundle savedInstanceState) {
+    public View onInflaterRootView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         return inflater.inflate(R.layout.fragment_dashboard, container, false);
     }
 
@@ -36,7 +37,11 @@ public class DashboardFragment extends ExtendLazyFragment {
 
     @Override
     public void onFindViews(View mRootView) {
-        TextView tip = mRootView.findViewById(R.id.tip);
+        tip = mRootView.findViewById(R.id.tip);
+    }
+
+    @Override
+    public void onBindContent() {
         tip.setText("DashboardFragment position" + position);
     }
 
