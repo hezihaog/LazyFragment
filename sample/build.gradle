@@ -29,5 +29,5 @@ dependencies {
     testCompile 'junit:junit:4.12'
     compile project(':lazy-fragment')
     compile 'com.android.support:design:26.0.0-alpha1'
-    compile 'com.hzh:log-util:1.0.0'
+    compile 'com.hzh:liba-logger:1.0.0'
 }

@@ -7,10 +7,10 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import com.apkfuns.logutils.LogUtil;
 import com.hzh.lazy.fragment.ExtendLazyFragment;
 import com.hzh.lazy.fragment.sample.MainActivity;
 import com.hzh.lazy.fragment.sample.R;
+import com.hzh.logger.L;
 
 /**
  * Package: com.hzh.lazy.fragment.sample.fragment
@@ -49,12 +49,12 @@ public class HomeFragment extends ExtendLazyFragment {
     @Override
     protected void onFragmentVisible() {
         super.onFragmentVisible();
-        LogUtil.d("Home onFragmentVisible...");
+        L.d("Home onFragmentVisible...");
     }
 
     @Override
     protected void onFragmentInvisible() {
         super.onFragmentInvisible();
-        LogUtil.d("Home onFragmentInvisible");
+        L.d("Home onFragmentInvisible");
     }
 }
