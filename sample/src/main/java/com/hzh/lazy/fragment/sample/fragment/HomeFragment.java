@@ -38,7 +38,7 @@ public class HomeFragment extends ExtendLazyFragment {
 
     @Override
     public void onFindViews(View mRootView) {
-        tip = mRootView.findViewById(R.id.tip);
+        tip = (TextView) mRootView.findViewById(R.id.tip);
     }
 
     @Override

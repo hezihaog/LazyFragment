@@ -37,7 +37,7 @@ public class DashboardFragment extends ExtendLazyFragment {
 
     @Override
     public void onFindViews(View mRootView) {
-        tip = mRootView.findViewById(R.id.tip);
+        tip = (TextView) mRootView.findViewById(R.id.tip);
     }
 
     @Override
